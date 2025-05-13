@@ -30,9 +30,10 @@ app.get('/divide', (req: Request, res: Response) => {
     const b = Number(req.query.b);
 
     if (b === 0) {
-        return res.status(400).json({ error: 'Cannot divide by zero' });
+      res.status(400).json({ error: 'Cannot divide by zero' });
+      return;
     }
-
+    
     res.json({ result: a / b });
 });
 
