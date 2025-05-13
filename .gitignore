@@ -1,0 +1,21 @@
+# Ignore node modules (dependencies)
+node_modules/
+
+# Ignore build output
+dist/
+
+# Ignore TypeScript cache
+*.tsbuildinfo
+
+# Optional: Ignore environment variables and logs
+.env
+*.log
+logs/
+
+# Optional: Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Optional: OS-specific junk
+.DS_Store
+Thumbs.db
