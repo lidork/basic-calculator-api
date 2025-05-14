@@ -17,9 +17,10 @@ function multiply (a: number, b: number): number {
 
 function divide (a: number, b: number) : number | string {
   if ( b == 0 )
-    return 'error: Cannot divide by zero'
+    return 'Cannot divide by zero'
   return a/b;
 }
+
 app.get('/', (_req: Request, res: Response) => {
   res.send('Calculator API is running!');
 });
@@ -39,7 +40,7 @@ app.get('/subtract', (req: Request, res: Response) => {
 app.get('/multiply', (req: Request, res: Response) => {
   const a = Number(req.query.a);
   const b = Number(req.query.b);
-  res.json({ result: a * b });
+  res.json({ result: multiply(a,b) });
 });
 
 app.get('/divide', (req: Request, res: Response) => {
@@ -47,7 +48,7 @@ app.get('/divide', (req: Request, res: Response) => {
     const b = Number(req.query.b);
     let c = divide(a,b);
     if (typeof c != 'number')
-      res.status(400).json({error: 'Cannot divide by zero'});
+      res.status(400).json({error: c});
     else
       res.json({ result: a / b });
 });
