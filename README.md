@@ -63,7 +63,9 @@ src/
 ## TODO
 
 - [x] Enable strict type-checking in tsconfig.json 
+- [ ] Add types, transfer to another module for cleaner structure.
 - [ ] Extract calculator logic into a separate module for cleaner structure.
+- [ ] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
 - [ ] Add input validation (ensure `a` and `b` are numbers, not NaN).
 - [ ] Improve error handling to return consistent JSON errors.
 - [ ] Write unit tests for all calculator functions.

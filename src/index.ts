@@ -1,24 +1,35 @@
 import express, { Request, Response } from 'express';
+import { CalcParams, NumericPair, ApiResponse }  from './types';
+
 
 const app = express();
 const port = 3000;
 
-function add(a: number, b: number) : number {
-  return a + b;
+function parseNumber(params : CalcParams) : NumericPair{
+  const a = Number(params.a);
+  const b = Number(params.b);
+  if(Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error('Invalid Number');
+  }
+  return {a,b};
 }
 
-function subtract(a: number, b: number) : number {
-  return a - b;
+function add(params : NumericPair) : ApiResponse<number> {
+  return {result: params.a + params.b }; 
 }
 
-function multiply (a: number, b: number): number {
-  return a * b;
+function subtract(params : NumericPair) : ApiResponse<number> {
+  return {result: params.a - params.b};
 }
 
-function divide (a: number, b: number) : number | string {
-  if ( b == 0 )
-    return 'Cannot divide by zero'
-  return a/b;
+function multiply(params : NumericPair) : ApiResponse<number> {
+  return {result: params.a * params.b};
+}
+
+function divide(params : NumericPair) : ApiResponse<number> {
+  if ( params.b == 0 )
+    return {error : 'Cannot divide by zero'};
+  return {result: params.a / params.b};
 }
 
 app.get('/', (_req: Request, res: Response) => {
@@ -26,32 +37,38 @@ app.get('/', (_req: Request, res: Response) => {
 });
 
 app.get('/add', (req: Request, res: Response) => {
-  const a = Number(req.query.a);
-  const b = Number(req.query.b);
-  res.json({ result: add(a,b) });
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  const params  = parseNumber({a,b});
+  res.json(add(params));
 });
 
 app.get('/subtract', (req: Request, res: Response) => {
-  const a = Number(req.query.a);
-  const b = Number(req.query.b);
-  res.json({ result: subtract(a,b) });
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  const params  = parseNumber({a,b});
+  res.json(subtract(params));
 });
 
 app.get('/multiply', (req: Request, res: Response) => {
-  const a = Number(req.query.a);
-  const b = Number(req.query.b);
-  res.json({ result: multiply(a,b) });
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  const params  = parseNumber({a,b});
+  res.json(multiply(params));
 });
 
 app.get('/divide', (req: Request, res: Response) => {
-    const a = Number(req.query.a);
-    const b = Number(req.query.b);
-    let c = divide(a,b);
-    if (typeof c != 'number')
-      res.status(400).json({error: c});
-    else
-      res.json({ result: a / b });
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  try {
+     const params  = parseNumber({a,b});
+     res.json(divide(params));
+  } catch (error) {
+    res.json({error: 'not a number'});
+  }
 });
+
+
 
 app.listen(port, () => {
   console.log(`Calculator API listening at http://localhost:${port}`);
