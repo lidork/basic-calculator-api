@@ -50,7 +50,13 @@ curl "http://localhost:3000/divide?a=9&b=0"    # → 400 { "error": "Cannot divi
 
 ```
 src/
-├── index.ts           # Express app & route handlers
+├── controllers/
+├──── index.ts           # Express app & route handlers
+├── modules/
+├──── types.ts          # Data types
+├── services/
+├──── basicfuncService.ts     # Calculation logic
+├── index.ts            # Main calls  
 ```
 ## AI Help
 - Every TypeScript file was written entirely by me
@@ -63,7 +69,7 @@ src/
 ## TODO
 
 - [x] Enable strict type-checking in tsconfig.json 
-- [ ] Add types, transfer to another module for cleaner structure.
+- [x] Add types, transfer to another module for cleaner structure.
 - [ ] Extract calculator logic into a separate module for cleaner structure.
 - [ ] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
 - [ ] Add input validation (ensure `a` and `b` are numbers, not NaN).
