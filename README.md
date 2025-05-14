@@ -53,23 +53,23 @@ src/
 ├── index.ts           # Express app & route handlers
 ```
 ## AI Help
-- The code was written entirely by me
+- Every TypeScript file was written entirely by me
 
 - ChatGPT was used as a guide for new features and tackling with new TypeScript Concepts
+- ChatGPT was used for writing config files correctly, with explanations for future reference
 - ChatGPT was also used in the creation of this very README!
 
 
 ## TODO
 
-- [ ] Enable strict type-checking in tsconfig.json 
+- [x] Enable strict type-checking in tsconfig.json 
 - [ ] Extract calculator logic into a separate module for cleaner structure.
 - [ ] Add input validation (ensure `a` and `b` are numbers, not NaN).
 - [ ] Improve error handling to return consistent JSON errors.
 - [ ] Write unit tests for all calculator functions.
 - [ ] Add middleware for logging incoming requests.
 - [ ] Create a simple frontend interface for testing the API (optional).
-- [ ] Add TypeScript configuration improvements (e.g., separate `dist` folder).
 - [ ] Use environment variables for configuration like port number.
 
 ## Future
-- [ X ] Use this as a base for a ReactNative front-end
+- Use this as a base for a ReactNative frontend

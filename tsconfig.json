@@ -2,9 +2,14 @@
     "compilerOptions": {
       "target": "ES6",                          // Compile to ES6 JavaScript
       "module": "CommonJS",                     // Use CommonJS module system (required by Node.js)
+      
       "rootDir": "src",                         // Where your TypeScript files live
       "outDir": "dist",                         // Where compiled JavaScript files go
+
       "strict": true,                           // Enable all strict type checks
+      "noImplicitAny": true,                    // no untyped variables/params
+      "strictNullChecks": true,                 // catch null/undefined bugs
+
       "esModuleInterop": true,                  // Allow default imports from CommonJS modules
       "forceConsistentCasingInFileNames": true, // Enforce consistent file name casing
       "skipLibCheck": true                      // Skip type checking of declaration files for faster compile
