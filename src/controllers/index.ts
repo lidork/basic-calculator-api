@@ -5,8 +5,6 @@ import basicFuncService from '../services/basicfuncService';
 const router = express.Router(); // for routing here
 const basicfunc = new basicFuncService();
 
-
-
 function parseNumber(params : CalcParams) : NumericPair{
   const a = Number(params.a);
   const b = Number(params.b);
