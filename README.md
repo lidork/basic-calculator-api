@@ -52,6 +52,12 @@ curl "http://localhost:3000/divide?a=9&b=0"    # → 400 { "error": "Cannot divi
 src/
 ├── index.ts           # Express app & route handlers
 ```
+## AI Help
+- The code was written entirely by me
+
+- ChatGPT was used as a guide for new features and tackling with new TypeScript Concepts
+- ChatGPT was also used in the creation of this very README!
+
 
 ## TODO
 
