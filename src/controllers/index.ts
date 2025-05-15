@@ -14,6 +14,7 @@ function parseNumber(params : CalcParams) : NumericPair{
   return {a,b};
 }
 
+
 router.get('/', (_req: Request, res: Response) => {
   res.send('Calculator API is running!');
 });
@@ -43,11 +44,11 @@ router.get('/divide', (req: Request, res: Response) => {
   const a = String(req.query.a);
   const b = String(req.query.b);
   try {
-      console.log('something');
-     const params  = parseNumber({a,b});
-     res.json(basicfunc.divide(params));
-  } catch (error) {
-    res.json({error: 'not a number'});
+    const params  = parseNumber({a,b});
+    res.json(basicfunc.divide(params));
+  } catch (err : unknown) {
+    const message : string = err instanceof Error ? err.message : String(err);
+    res.status(400).json({error : message});
   }
 });
 

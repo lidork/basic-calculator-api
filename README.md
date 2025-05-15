@@ -73,7 +73,7 @@ src/
 - [x] Extract calculator logic into a separate module for cleaner structure.
 - [x] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
 - [x] Add input validation (ensure `a` and `b` are numbers, not NaN).
-- [ ] Improve error handling to return consistent JSON errors.
+- [-] Improve error handling to return consistent JSON errors. -> not needed for the scope of this project, idea explored
 - [ ] Write unit tests for all calculator functions.
 - [ ] Add middleware for logging incoming requests.
 - [ ] Add timeout 
