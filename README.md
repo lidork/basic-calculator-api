@@ -10,13 +10,13 @@ A minimal Express + TypeScript REST API for basic arithmetic operations.
   - `GET /multiply?a=<number>&b=<number>`  
   - `GET /divide?a=<number>&b=<number>` (returns 400 on divide-by-zero)  
 - Written in TypeScript  
-- Zero external dependencies beyond `express`
+- Zero external dependencies beyond `express` and `jest` for tests
 
 ## Getting Started
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/<your-username>/basic-calculator-api.git
+   git clone https://github.com/<lidork>/basic-calculator-api.git
    cd basic-calculator-api
    ```
 
@@ -53,6 +53,8 @@ src/
 ├── controllers/
 ├──── index.ts           # Express app & route handlers
 ├── modules/
+├──── __tests__/
+├────── basicfunc.test.ts      #tests for calculation logic
 ├──── types.ts          # Data types
 ├── services/
 ├──── basicfuncService.ts     # Calculation logic
@@ -74,11 +76,11 @@ src/
 - [x] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
 - [x] Add input validation (ensure `a` and `b` are numbers, not NaN).
 - [-] Improve error handling to return consistent JSON errors. -> not needed for the scope of this project, idea explored
-- [ ] Write unit tests for all calculator functions.
+- [x] Write unit tests for all calculator functions.
 - [ ] Add middleware for logging incoming requests.
 - [ ] Add timeout 
 - [ ] Use environment variables for configuration like port number.
-- [ ] Introduce more complicated logic
+- [ ] Introduce more complicated logic (optional, out of scope)
 - [ ] Create a simple frontend interface for testing the API (optional).
 
 ## Future
@@ -86,3 +88,4 @@ src/
 
 ## Thanks
 - Ariel Kalif for helping with some bugs.
+- Yonatan Ratner for helping with scope control.
