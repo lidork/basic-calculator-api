@@ -36,7 +36,10 @@ A minimal Express + TypeScript REST API for basic arithmetic operations.
    npm run build
    npm start
    ```
-
+5. **Test with jest**
+   ```bash
+   npm test
+   ```
 ## Usage
 
 Open your browser or use `curl` / Postman to call:
