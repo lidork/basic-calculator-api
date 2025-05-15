@@ -51,6 +51,33 @@ router.get('/divide', (req: Request, res: Response) => {
   }
 });
 
+router.get('/pow', (req: Request, res: Response) => {
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  const params  = parseNumber({a,b});
+  res.json(basicfunc.pow(params));
+})
 
+router.get('/root', (req: Request, res: Response) => {
+  const a = String(req.query.a);
+  const b = String(req.query.b);
+  const params  = parseNumber({a,b});
+  res.json(basicfunc.root(params));
+})
+
+router.get('/sin', (req: Request, res: Response) => {
+  const a = Number(req.query.a);
+  res.json(basicfunc.sin(a));
+})
+
+router.get('/cos', (req: Request, res: Response) => {
+  const a = Number(req.query.a);
+  res.json(basicfunc.cos(a));
+})
+
+router.get('/tan', (req: Request, res: Response) => {
+  const a = Number(req.query.a);
+  res.json(basicfunc.tan(a));
+})
 
 export default router; //export for outside access

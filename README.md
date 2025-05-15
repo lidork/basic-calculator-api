@@ -71,13 +71,15 @@ src/
 - [x] Enable strict type-checking in tsconfig.json 
 - [x] Add types, transfer to another module for cleaner structure.
 - [x] Extract calculator logic into a separate module for cleaner structure.
-- [ ] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
+- [x] Introduce more complex logic to calculator (pow, avg, sin, cos, tan, root, etc.)
 - [x] Add input validation (ensure `a` and `b` are numbers, not NaN).
 - [ ] Improve error handling to return consistent JSON errors.
 - [ ] Write unit tests for all calculator functions.
 - [ ] Add middleware for logging incoming requests.
-- [ ] Create a simple frontend interface for testing the API (optional).
+- [ ] Add timeout 
 - [ ] Use environment variables for configuration like port number.
+- [ ] Introduce more complicated logic
+- [ ] Create a simple frontend interface for testing the API (optional).
 
 ## Future
 - Use this as a base for a ReactNative frontend
