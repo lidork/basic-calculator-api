@@ -10,7 +10,7 @@ A minimal Express + TypeScript REST API for basic arithmetic operations.
   - `GET /multiply?a=<number>&b=<number>`  
   - `GET /divide?a=<number>&b=<number>` (returns 400 on divide-by-zero)  
 - Written in TypeScript  
-- Zero external dependencies beyond `express`, `jest` is used for tests, `morgan` for logs
+- Zero external dependencies beyond `express`, `jest` (tests), `morgan` (logs), `dotenv`
 
 ## Getting Started
 
@@ -61,7 +61,9 @@ src/
 ├──── types.ts          # Data types
 ├── services/
 ├──── basicfuncService.ts     # Calculation logic
+├── config.ts              #configuration implementation
 ├── index.ts            # Main calls  
+.env.example            #example .env file
 ```
 ## AI Help
 - Every TypeScript file was written entirely by me
@@ -82,9 +84,9 @@ src/
 - [x] Write unit tests for all calculator functions.
 - [x] Add middleware for logging incoming requests.
 - [x] Add timeout 
-- [ ] Use environment variables for configuration like port number.
+- [x] Use environment variables for configuration like port number.
 - [ ] Introduce more complicated logic (optional, out of scope)
-- [ ] Create a simple frontend interface for testing the API (optional).
+- [ ] Create a simple frontend interface for testing the API (see future).
 
 ## Future
 - Use this as a base for a ReactNative frontend

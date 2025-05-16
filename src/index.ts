@@ -1,20 +1,20 @@
 import mainRouter from './controllers/index'
 import express from 'express'
 import morgan from 'morgan';
+import { config } from './config';
 
 
 const app = express();
-const port = 3000;
 
 //idle time till timeout, in ms
-const IDLE_MS = 1000 * 1 * 60; // 1 minute
+const IDLE_MS = config.idleMin * 1000 * 60
 
 let idleTimer: NodeJS.Timeout;
 
 function restartIdleTimer(){
   if(idleTimer) clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
-    console.log(`No requests for the last ${IDLE_MS /1000 / 60} minutes, shutting down API`);
+    console.log(`No requests for the last ${config.idleMin} minutes, shutting down API`);
     server.close(() => {
       console.log('Server closed.');
       process.exit(0);
@@ -23,7 +23,7 @@ function restartIdleTimer(){
 }, IDLE_MS);
 }
 
-app.use(morgan('dev')); //reports logs of GET req to console
+app.use(morgan(config.logFmt)); //reports logs of GET req to console
 
 app.use('/', mainRouter);
 
@@ -31,7 +31,7 @@ app.use('/', mainRouter);
 restartIdleTimer();
 
 
-const server = app.listen(port, () => {
-    console.log(`Calculator API listening at http://localhost:${port}`);
+const server = app.listen(config.port, () => {
+    console.log(`Calculator API listening at http://localhost:${config.port}`);
   });
 
